@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+
+    <!-- js阻碍页面渲染，等待加载执行完，才打印‘begin’  1 2 3 4 5 6 7 8 begin hahahah-->
+    <!-- <script src="./module1.js " type="text/javascript"></script>
+    <script src="./module2.js " type="text/javascript"></script>
+    <script src="./module3.js " type="text/javascript"></script>
+    <script src="./module4.js " type="text/javascript"></script>
+    <script src="./module5.js " type="text/javascript"></script>
+    <script src="./module6.js " type="text/javascript"></script>
+    <script src="./module7.js " type="text/javascript"></script>
+    <script src="./module8.js " type="text/javascript"></script> -->
+
+
+    <!-- 先打印‘begin’ 再执行，按照顺序  begin 1 2 3 4 5 6 7 8  hahahah-->
+    <!-- <script src="./module1.js " type="text/javascript" defer></script>
+    <script src="./module2.js " type="text/javascript" defer></script>
+    <script src="./module3.js " type="text/javascript" defer></script>
+    <script src="./module4.js " type="text/javascript" defer></script>
+    <script src="./module5.js " type="text/javascript" defer></script>
+    <script src="./module6.js " type="text/javascript" defer></script>
+    <script src="./module7.js " type="text/javascript" defer></script>
+    <script src="./module8.js " type="text/javascript" defer></script> -->
+
+    <!-- 先打印‘begin’ 再执行，不按照顺序 begin 4 2 3 1 5 6 7 8  hahahah-->
+    <!-- <script src="./module1.js " type="text/javascript" async></script>
+    <script src="./module2.js " type="text/javascript" async></script>
+    <script src="./module3.js " type="text/javascript" async></script>
+    <script src="./module4.js " type="text/javascript" async></script>
+    <script src="./module5.js " type="text/javascript" async></script>
+    <script src="./module6.js " type="text/javascript" async></script>
+    <script src="./module7.js " type="text/javascript" async></script>
+    <script src="./module8.js " type="text/javascript" async></script> -->
+</head>
+
+<body>
+    <h1>测试module的实现方式</h1>
+    <div id="message"></div>
+    <pre>
+        0、默认情况下，浏览器是同步加载 JavaScript 脚本，即渲染引擎遇到script标签就会停下来，
+           等到执行完脚本，再继续向下渲染。如果是外部脚本，还必须加入脚本下载的时间。
+        1、defer async 异步加载。渲染引擎遇到这一行命令，就会开始下载外部脚本，
+                               但不会等它下载和执行，而是直接执行后面的命令。
+        2、defer，按照顺序加载,要等到整个页面在内存中正常渲染结束（DOM 结构完全生成，以及其他脚本执行完成），才会执行
+        3、async 不按照顺序加载,一旦下载完，渲染引擎就会中断渲染，执行这个脚本以后，再继续渲染。
+        4/defer与async的区别是：defer是“渲染完再执行”，async是“下载完就执行”。
+                              另外，如果有多个defer脚本，会按照它们在页面出现的顺序加载，
+                              而多个async脚本是不能保证加载顺序的。
+    </pre>
+
+    <!-- <script>
+        console.log('begin')
+        let a = document.getElementById('message')
+        setTimeout(function() {
+            a.innerText = '内置js'
+            console.log('hahahah')
+        }, 3000);
+    </script> -->
+    <!-- <script type="module">
+        import utils from "./foo.js"; // other code
+    </script>
+    <script type="module" src="./foo.js"></script> -->
+    <!-- <script src="./index.js"></script> -->
+    <!-- <script src="./dist/build.js"></script> -->
+    <script src="./js/maines6.js"></script>
+</body>
+
+</html>
